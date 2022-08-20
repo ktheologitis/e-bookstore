@@ -1,0 +1,11 @@
+.product-card {
+  background-color: aliceblue;
+  width: 10rem;
+
+  &__image {
+    object-fit: cover;
+  }
+
+  &__details {
+  }
+}
