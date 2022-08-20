@@ -10,7 +10,7 @@
   &__header {
     position: relative;
     width: 100%;
-    height: 200px;
+    height: 140px;
     transition: all 0.2s ease-in-out;
     vertical-align: top;
 
@@ -23,6 +23,7 @@
   &__img {
     display: block;
     width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 
@@ -63,8 +64,20 @@
   }
 }
 
+@media screen and (min-width: 425px) {
+  .product-card {
+    &__header {
+      height: 18rem;
+    }
+  }
+}
+
 @media screen and (min-width: 768px) {
   .product-card {
+    &__header {
+      height: 20rem;
+    }
+
     &__details {
       font: $desktop-body;
     }
