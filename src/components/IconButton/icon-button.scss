@@ -1,0 +1,33 @@
+@import "../../stylesheets/variables";
+
+.icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: transparent;
+  border: solid 0.2rem #725752;
+  color: #725752;
+  font: $mobile-body-medium;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--flat {
+    border: none;
+  }
+
+  &__icon {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .fab-button {
+    font: $desktop-body-medium;
+  }
+}

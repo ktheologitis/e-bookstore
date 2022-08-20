@@ -1,3 +1,4 @@
+import IconButton from "../IconButton/IconButton";
 import "./basket-product-card.scss";
 
 const BasketProductCard = ({
@@ -16,9 +17,7 @@ const BasketProductCard = ({
       <section className="basket-product-card__details">
         <header className="basket-product-card__title">{title}</header>
         <div className="basket-product-card__product-amount">
-          <button>-</button>
           <p>{amount_selected.toString()}</p>
-          <button>+</button>
         </div>
       </section>
       <section className="basket-product-card__price">
