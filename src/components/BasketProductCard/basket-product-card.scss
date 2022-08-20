@@ -1,0 +1,58 @@
+@import "../../stylesheets/variables";
+
+.basket-product-card {
+  display: flex;
+  align-items: stretch;
+  gap: 1.6rem;
+  background-color: white;
+  border-radius: 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+  &__img {
+    display: block;
+    object-fit: cover;
+    border-radius: 2rem 0 0 2rem;
+    height: 100px;
+    width: 100px;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  &__title {
+    font: $mobile-body-medium;
+    font-size: 1.8rem;
+  }
+
+  &__product-amount {
+    display: flex;
+    gap: 1rem;
+    font: $mobile-body-medium;
+  }
+
+  &__price {
+    align-self: center;
+    margin-left: auto;
+    margin-right: 1rem;
+    font: $mobile-body-medium;
+    font-size: 1.6rem;
+    color: #725752;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .basket-product-card {
+    &__img {
+      height: 150px;
+      width: 150px;
+    }
+
+    &__price {
+      margin-right: 2.4rem;
+      font-size: 2.4rem;
+    }
+  }
+}
