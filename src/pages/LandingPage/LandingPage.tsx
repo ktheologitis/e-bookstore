@@ -1,4 +1,5 @@
 import "./landing-page.scss";
+import "../../stylesheets/page.scss";
 import bookstoreIllustration from "../../assets/images/bookstore-illustration.png";
 
 const LandingPage = () => {

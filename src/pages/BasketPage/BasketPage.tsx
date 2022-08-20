@@ -1,10 +1,9 @@
 import BasketProductCard from "../../components/BasketProductCard/BasketProductCard";
 import PageHeader from "../../components/PageHeader/PageHeader";
-import "../../stylesheets/page.scss";
 
 const BasketPage = () => {
   return (
-    <main className="page">
+    <main className="basket-page">
       <PageHeader title="My Basket" />
       <BasketProductCard
         title="Book 1"
