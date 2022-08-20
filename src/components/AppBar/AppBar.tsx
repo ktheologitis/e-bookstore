@@ -3,7 +3,7 @@ import "./app-bar.scss";
 const AppBar = () => {
   return (
     <header className="app-bar">
-      <h1>BookStore</h1>
+      <p className="header__title">BookStore</p>
     </header>
   );
 };

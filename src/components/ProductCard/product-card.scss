@@ -1,0 +1,76 @@
+@import "../../stylesheets/variables";
+
+.product-card {
+  background-color: white;
+  width: 20rem;
+  overflow: hidden;
+  border-radius: 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+  &__header {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    transition: all 0.2s ease-in-out;
+    vertical-align: top;
+
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__hover-elements {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(71, 54, 51, 0.65);
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 1rem;
+    font: $mobile-body;
+  }
+
+  &__title,
+  &__price {
+    margin: 0;
+  }
+
+  &__price {
+    color: #725752;
+  }
+
+  &__stock {
+    font: $mobile-body-medium;
+    color: white;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .product-card {
+    &__details {
+      font: $desktop-body;
+    }
+
+    &__stock {
+      font: $desktop-body-medium;
+    }
+  }
+}
