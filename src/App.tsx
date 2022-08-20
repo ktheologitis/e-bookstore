@@ -1,9 +1,7 @@
-import { useProducts } from "./hooks/useProducts";
+import Routing from "./Routing";
 
 function App() {
-  useProducts();
-
-  return <></>;
+  return <Routing />;
 }
 
 export default App;
