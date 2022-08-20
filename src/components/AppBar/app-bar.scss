@@ -1,11 +1,17 @@
+@import "../../stylesheets/variables";
+
 .app-bar {
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 4.8rem;
+  font: $mobile-heading;
+  color: $heading-color;
 }
 
 @media screen and (min-width: 768px) {
   .app-bar {
     height: 6.4rem;
+    font: $desktop-heading;
   }
 }
