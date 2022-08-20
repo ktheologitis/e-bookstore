@@ -1,5 +1,6 @@
 import BasketProductCard from "../../components/BasketProductCard/BasketProductCard";
 import PageHeader from "../../components/PageHeader/PageHeader";
+import "./basket-page.scss";
 
 const BasketPage = () => {
   return (

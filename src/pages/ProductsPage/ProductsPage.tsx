@@ -1,11 +1,12 @@
 import PageHeader from "../../components/PageHeader/PageHeader";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import "./products-page.scss";
 
 const ProductsPage = () => {
   return (
     <main className="products-page">
       <PageHeader title="Products" />
-      <main className="page__products">
+      <main className="products-page__products">
         <ProductCard
           title="Book 1"
           price="20"
