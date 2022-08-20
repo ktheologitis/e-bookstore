@@ -5,14 +5,30 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
   font: $mobile-body-light;
 
   &__illustration {
-    width: 500px;
+    width: 300px;
     aspect-ratio: 1 / 1;
   }
 
   &__title {
     font-size: 2.4rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .landing-page {
+    font: $desktop-body-light;
+
+    &__illustration {
+      width: 500px;
+    }
+
+    &__title {
+      font-size: 2.4rem;
+    }
   }
 }

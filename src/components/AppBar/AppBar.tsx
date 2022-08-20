@@ -1,18 +1,29 @@
 import "./app-bar.scss";
-import menuIcon from "../../assets/images/menu.png";
 import cartIcon from "../../assets/images/cart.png";
-import FabButton from "../IconButton/IconButton";
-import { IconButtonStyles } from "../../lib/enums";
+import bookIcon from "../../assets/images/book.png";
+import IconButton from "../IconButton/IconButton";
+import { Breakpoints, IconButtonStyles } from "../../lib/enums";
+import { useBreakPoint } from "../../hooks/useBreakPoint";
 
 const AppBar = () => {
+  const breakPoint = useBreakPoint();
+
   return (
     <header className="app-bar">
-      <FabButton icon={menuIcon} style={IconButtonStyles.Flat} />
       <p className="header__title">BookStore</p>
-      <section className="app-bar__cart">
-        <FabButton icon={cartIcon} style={IconButtonStyles.Flat} />
-        <div className="app-bar__cart-count">{1}</div>
-      </section>
+      <nav className="app-bar__navigation">
+        <ul>
+          <li>
+            {breakPoint === Breakpoints.Desktop && "Products"}
+            <IconButton icon={bookIcon} style={IconButtonStyles.Flat} />
+          </li>
+          <li className="app-bar__basket">
+            {breakPoint === Breakpoints.Desktop && "My Basket"}
+            <IconButton icon={cartIcon} style={IconButtonStyles.Flat} />
+            <div className="app-bar__basket-count">{1}</div>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 };

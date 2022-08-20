@@ -1,10 +1,9 @@
 import PageHeader from "../../components/PageHeader/PageHeader";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import "../../stylesheets/page.scss";
 
 const ProductsPage = () => {
   return (
-    <main className="page">
+    <main className="products-page">
       <PageHeader title="Products" />
       <main className="page__products">
         <ProductCard
