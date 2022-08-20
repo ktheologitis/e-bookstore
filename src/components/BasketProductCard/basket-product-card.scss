@@ -2,11 +2,11 @@
 
 .basket-product-card {
   display: flex;
-  align-items: stretch;
   gap: 1.6rem;
   background-color: white;
   border-radius: 2rem;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  max-width: 400px;
 
   &__img {
     display: block;
@@ -29,6 +29,7 @@
 
   &__product-amount {
     display: flex;
+    align-items: center;
     gap: 1rem;
     font: $mobile-body-medium;
   }
@@ -45,9 +46,10 @@
 
 @media screen and (min-width: 768px) {
   .basket-product-card {
+    max-width: 600px;
     &__img {
-      height: 150px;
-      width: 150px;
+      height: 130px;
+      width: 130px;
     }
 
     &__price {
