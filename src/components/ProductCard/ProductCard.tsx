@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { ButtonStyles } from "../../lib/enums";
+import Button from "../Button/Button";
 import "./product-card.scss";
 
 const ProductCard = ({ title, price, stock, img }: ProductCardProps) => {
@@ -15,7 +17,7 @@ const ProductCard = ({ title, price, stock, img }: ProductCardProps) => {
         {hover && (
           <div className="product-card__hover-elements">
             <p className="product-card__stock">{stock.toString()} left</p>
-            {/* <button disabled={stock === 0}>add to cart</button> */}
+            <Button label="Add to cart" style={ButtonStyles.White} />
           </div>
         )}
       </header>

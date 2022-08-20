@@ -1,0 +1,33 @@
+@import "../../stylesheets/variables";
+
+.button {
+  border: #473633 solid 0.2rem;
+  color: #473633;
+  border-radius: 500px;
+  background-color: transparent;
+  padding: 1rem 2.4rem;
+  text-transform: capitalize;
+  font: $mobile-body-medium;
+
+  &:hover {
+    color: white;
+    background-color: #473633;
+    cursor: pointer;
+  }
+}
+
+.button--white {
+  color: white;
+  border: white solid 0.2rem;
+
+  &:hover {
+    background: white;
+    color: #473633;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .button {
+    font: $desktop-body-medium;
+  }
+}
