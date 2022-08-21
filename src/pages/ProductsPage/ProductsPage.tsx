@@ -4,15 +4,12 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import IllustrationSection from "../../components/IllustrationSection/IllustrationSection";
 import { ProductsContext } from "../../contextProviders/ProductsContextProvider";
 import "./products-page.scss";
-import { Products } from "../../lib/types";
+import { useCachedProducts } from "../../hooks/useCachedProducts";
 
 const ProductsPage = () => {
-  const fromLocalStorage = window.localStorage.getItem("cachedProducts");
-  const cachedProducts: Products = fromLocalStorage
-    ? JSON.parse(fromLocalStorage)
-    : null;
-
+  const cachedProducts = useCachedProducts();
   const { products, status, updateStock } = useContext(ProductsContext);
+
   const isLoading = status === "loading";
   const isSuccess = status === "success";
 

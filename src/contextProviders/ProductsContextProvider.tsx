@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useProducts } from "../hooks/useProducts";
 import { Products } from "../lib/types";
 import { cloneDeep } from "lodash";
+import { useCachedProducts } from "../hooks/useCachedProducts";
 
 const initialProductsData = {
   products: {},
@@ -17,10 +18,11 @@ const ProductsContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const { productsData, query } = useProducts();
+  const cachedProducts = useCachedProducts();
   const [products, setProducts] = useState<Products>(
-    initialProductsData.products
+    cachedProducts ?? initialProductsData.products
   );
+  const { productsData, query } = useProducts();
 
   const updateStock = (id: string, action: "add" | "remove") => {
     const newProducts = cloneDeep(products);

@@ -2,9 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { getProducts } from "../lib/api";
 import { Product, Products } from "../lib/types";
+import { useCachedProducts } from "./useCachedProducts";
 
 export const useProducts = () => {
-  const [productsData, setProducts] = useState<Products>({});
+  const cachedProducts = useCachedProducts();
+  const [productsData, setProductsData] = useState<Products>(
+    cachedProducts ?? {}
+  );
 
   const query = useQuery(
     ["products"],
@@ -15,14 +19,21 @@ export const useProducts = () => {
       staleTime: Infinity,
       onSuccess(data: Product[]) {
         const normalizedData: Products = {};
-        data.forEach((item) => {
-          normalizedData[item.id] = { ...item, selected_quantity: 0 };
+        setProductsData((_) => {
+          data.forEach((item) => {
+            normalizedData[item.id] = {
+              ...item,
+              selected_quantity: 0,
+            };
+          });
+
+          window.localStorage.setItem(
+            "cachedProducts",
+            JSON.stringify(normalizedData)
+          );
+
+          return normalizedData;
         });
-        window.localStorage.setItem(
-          "cachedProducts",
-          JSON.stringify(normalizedData)
-        );
-        setProducts(normalizedData);
       },
     }
   );
