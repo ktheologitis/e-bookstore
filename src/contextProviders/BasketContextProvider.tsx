@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useCheckoutPrice } from "../hooks/useCheckoutPrice";
 import { Basket } from "../lib/types";
-import { ProductsContext } from "./ProductsContextProvider";
 
 const date = new Date();
 const day = date.getDate();
