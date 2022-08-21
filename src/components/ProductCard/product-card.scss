@@ -7,7 +7,7 @@
   border-radius: 2rem;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 
-  &__header {
+  &__media {
     position: relative;
     width: 100%;
     height: 140px;
@@ -16,7 +16,6 @@
 
     &:hover {
       transform: scale(1.05);
-      cursor: pointer;
     }
   }
 
@@ -43,30 +42,48 @@
 
   &__details {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  &__supporting-text {
+    display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    padding: 1rem 1rem;
     font: $mobile-body;
   }
 
-  &__title,
-  &__price {
-    margin: 0;
+  &__headline {
+    padding: 0.5rem 1rem;
+    font: $mobile-body-medium;
   }
 
+  &__headline,
   &__price {
     color: #725752;
+  }
+
+  &__price,
+  &__stock--mobile {
+    margin: 0;
   }
 
   &__stock {
     font: $mobile-body-medium;
     color: white;
+
+    &--mobile {
+      font: $mobile-body-medium;
+      color: #473633;
+      font-size: 1.2rem;
+    }
   }
 }
 
 @media screen and (min-width: 425px) {
   .product-card {
-    &__header {
+    &__media {
       height: 18rem;
     }
   }
@@ -74,7 +91,7 @@
 
 @media screen and (min-width: 768px) {
   .product-card {
-    &__header {
+    &__media {
       height: 20rem;
     }
 
