@@ -3,6 +3,7 @@ import PageHeader from "../../components/PageHeader/PageHeader";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import IllustrationSection from "../../components/IllustrationSection/IllustrationSection";
 import { ProductsContext } from "../../contextProviders/ProductsContextProvider";
+import "../../stylesheets/page.scss";
 import "./products-page.scss";
 import { useCachedProducts } from "../../hooks/useCachedProducts";
 
