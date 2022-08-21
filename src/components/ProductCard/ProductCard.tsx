@@ -14,7 +14,6 @@ const ProductCard = ({
   image_url,
   stock_quantity,
   price,
-  updateStock,
 }: ProductCardProps) => {
   const [hover, setHover] = useState(false);
   const breakPoint = useBreakPoint();
@@ -75,6 +74,4 @@ const ProductCard = ({
 
 export default ProductCard;
 
-type ProductCardProps = Omit<Product, "discount_sets" | "selected_quantity"> & {
-  updateStock: (id: string, action: "add" | "remove") => void;
-};
+type ProductCardProps = Omit<Product, "discount_sets" | "selected_quantity">;

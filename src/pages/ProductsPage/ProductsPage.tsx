@@ -6,20 +6,25 @@ import { ProductsContext } from "../../contextProviders/ProductsContextProvider"
 import "../../stylesheets/page.scss";
 import "./products-page.scss";
 import { useCachedProducts } from "../../hooks/useCachedProducts";
+import { Status } from "../../lib/enums";
 
 const ProductsPage = () => {
   const cachedProducts = useCachedProducts();
-  const { products, status, updateStock } = useContext(ProductsContext);
+  const { products, status } = useContext(ProductsContext);
 
-  const isLoading = status === "loading";
-  const isSuccess = status === "success";
+  const isLoading = status === Status.Loading;
+  const isSuccess = status === Status.Success;
+  const isError = status === Status.Error;
 
   return (
     <main className="page products-page">
+      {isError && !cachedProducts && (
+        <IllustrationSection text="We had an issue fetching the products. Please try again later ..." />
+      )}
       {isLoading && !cachedProducts && (
         <IllustrationSection text="Please wait until we load our products ..." />
       )}
-      {isLoading && cachedProducts && (
+      {(isLoading || isError) && cachedProducts && (
         <>
           <PageHeader title="Products" />
           <section className="products-page__products">
@@ -32,7 +37,6 @@ const ProductsPage = () => {
                     price={product.price}
                     image_url={product.image_url}
                     stock_quantity={product.stock_quantity}
-                    updateStock={updateStock}
                   />
                 </React.Fragment>
               );
@@ -53,7 +57,6 @@ const ProductsPage = () => {
                     price={product.price}
                     image_url={product.image_url}
                     stock_quantity={product.stock_quantity}
-                    updateStock={updateStock}
                   />
                 </React.Fragment>
               );

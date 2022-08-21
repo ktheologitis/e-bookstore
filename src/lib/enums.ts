@@ -12,3 +12,9 @@ export enum Breakpoints {
   Desktop,
   Mobile,
 }
+
+export enum Status {
+  Error = "error",
+  Loading = "loading",
+  Success = "success",
+}
