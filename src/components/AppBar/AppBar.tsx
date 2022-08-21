@@ -5,7 +5,6 @@ import IconButton from "../IconButton/IconButton";
 import { Breakpoints, IconButtonStyles } from "../../lib/enums";
 import { useBreakPoint } from "../../hooks/useBreakPoint";
 import { useNavigate } from "react-router-dom";
-import React from "react";
 
 const AppBar = () => {
   const navigate = useNavigate();

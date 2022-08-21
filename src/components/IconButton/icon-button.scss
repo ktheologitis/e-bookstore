@@ -15,11 +15,16 @@
 
   &:hover {
     cursor: pointer;
+    background-color: #ccbbb8;
   }
 
   &--labeled {
     width: auto;
     height: auto;
+    &:hover {
+      background-color: transparent;
+      font: $mobile-body-bold;
+    }
   }
 
   &--flat {
