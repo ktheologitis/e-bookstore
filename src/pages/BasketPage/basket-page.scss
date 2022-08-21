@@ -1,3 +1,20 @@
+@import "../../stylesheets/variables";
+
 .basket-page {
-  padding: 0 2.4rem;
+  &__main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  &__basket-product-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
 }

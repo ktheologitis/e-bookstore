@@ -14,15 +14,21 @@
     background-color: #473633;
     cursor: pointer;
   }
-}
 
-.button--white {
-  color: white;
-  border: white solid 0.2rem;
+  &--disabled {
+    &:hover {
+      cursor: default;
+    }
+  }
 
-  &:hover {
-    background: white;
-    color: #473633;
+  &--white {
+    color: white;
+    border: white solid 0.2rem;
+
+    &:hover {
+      background: white;
+      color: #473633;
+    }
   }
 }
 

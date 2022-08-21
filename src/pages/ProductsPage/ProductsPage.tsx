@@ -1,25 +1,41 @@
+import React, { useContext } from "react";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import IllustrationSection from "../../components/IllustrationSection/IllustrationSection";
+import { ProductsContext } from "../../contextProviders/ProductsContextProvider";
 import "./products-page.scss";
 
 const ProductsPage = () => {
+  const { products, status, updateStock } = useContext(ProductsContext);
+  const isLoading = status === "loading";
+  const isSuccess = status === "success";
+
   return (
-    <main className="products-page">
-      <PageHeader title="Products" />
-      <section className="products-page__products">
-        <ProductCard
-          title="Book 1"
-          price="20"
-          stock={2}
-          img="https://picsum.photos/200?random=1"
-        />
-        <ProductCard
-          title="Book 1"
-          price="20"
-          stock={2}
-          img="https://picsum.photos/200?random=1"
-        />
-      </section>
+    <main className="page products-page">
+      {isLoading && (
+        <IllustrationSection text="Please wait until we load our products ..." />
+      )}
+      {isSuccess && (
+        <>
+          <PageHeader title="Products" />
+          <section className="products-page__products">
+            {Object.values(products).map((product) => {
+              return (
+                <React.Fragment key={product.id}>
+                  <ProductCard
+                    id={product.id}
+                    title={product.title}
+                    price={product.price}
+                    image_url={product.image_url}
+                    stock_quantity={product.stock_quantity}
+                    updateStock={updateStock}
+                  />
+                </React.Fragment>
+              );
+            })}
+          </section>
+        </>
+      )}
     </main>
   );
 };

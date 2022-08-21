@@ -5,10 +5,13 @@ import IconButton from "../IconButton/IconButton";
 import { Breakpoints, IconButtonStyles } from "../../lib/enums";
 import { useBreakPoint } from "../../hooks/useBreakPoint";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { BasketContext } from "../../contextProviders/BasketContextProvider";
 
 const AppBar = () => {
   const navigate = useNavigate();
   const breakPoint = useBreakPoint();
+  const basket = useContext(BasketContext);
 
   return (
     <header className="app-bar">
@@ -34,14 +37,16 @@ const AppBar = () => {
                 navigate("./basket");
               }}
             />
-            <div
-              className="app-bar__basket-count"
-              onClick={() => {
-                navigate("./basket");
-              }}
-            >
-              {1}
-            </div>
+            {basket.data.count > 0 && (
+              <div
+                className="app-bar__basket-count"
+                onClick={() => {
+                  navigate("./basket");
+                }}
+              >
+                {basket.data.count}
+              </div>
+            )}
           </li>
         </ul>
       </nav>

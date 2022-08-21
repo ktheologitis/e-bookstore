@@ -1,0 +1,42 @@
+@import "../../stylesheets//variables";
+
+.billing-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 1.6rem;
+  background-color: white;
+  border-radius: 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+  &__sum,
+  &__discount {
+    font: $mobile-body-medium;
+    font-size: 1.6rem;
+  }
+
+  &__discount {
+    font: $mobile-body-bold;
+    color: #725752;
+  }
+
+  &__price {
+    font: $mobile-body-bold;
+    font-size: 1.6rem;
+    color: #725752;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .billing-section {
+    &__sum,
+    &__discount {
+      font-size: 1.8rem;
+    }
+
+    &__price {
+      font-size: 2rem;
+    }
+  }
+}

@@ -18,6 +18,12 @@
     background-color: #ccbbb8;
   }
 
+  &--disabled {
+    &:hover {
+      cursor: default;
+    }
+  }
+
   &--labeled {
     width: auto;
     height: auto;
