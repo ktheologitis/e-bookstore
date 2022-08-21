@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useCheckoutPrice } from "../hooks/useCheckoutPrice";
 import { Basket } from "../lib/types";
 import { ProductsContext } from "./ProductsContextProvider";
 
@@ -10,7 +11,7 @@ const initialBasketData = {
   items: [],
   count: 0,
   checkout_price: 0,
-  hasDiscount: month === 8 && day === 1,
+  hasDiscount: month === 8 && day === 21,
   discount: 0.2,
 };
 
@@ -20,30 +21,21 @@ export const BasketContext = React.createContext<BasketContextData>({
 });
 
 const BasketContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const { products } = useContext(ProductsContext);
   const [data, setData] = useState<Basket>(initialBasketData);
+  const checkoutPrice = useCheckoutPrice(data);
 
   const update = (updatedBasket: Basket) => {
     setData(updatedBasket);
   };
 
   useEffect(() => {
-    let new_checkout_price = 0;
-    data.items.forEach((id) => {
-      new_checkout_price =
-        new_checkout_price +
-        products[id].price * products[id].selected_quantity;
-    });
-
     setData((data) => {
       return {
         ...data,
-        checkout_price: data.hasDiscount
-          ? applyDiscount(new_checkout_price, data.discount)
-          : new_checkout_price,
+        checkout_price: checkoutPrice,
       };
     });
-  }, [data.count, data.items, products]);
+  }, [checkoutPrice]);
 
   return (
     <BasketContext.Provider value={{ data: data, update: update }}>
@@ -57,8 +49,4 @@ export default BasketContextProvider;
 type BasketContextData = {
   data: Basket;
   update: (updatedBasket: Basket) => void;
-};
-
-const applyDiscount = (amount: number, discount: number) => {
-  return amount - amount * discount;
 };

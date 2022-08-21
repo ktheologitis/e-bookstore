@@ -1,12 +1,12 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useBreakPoint } from "../../hooks/useBreakPoint";
 import { Breakpoints, ButtonStyles } from "../../lib/enums";
 import Button from "../Button/Button";
 import IconButton from "../IconButton/IconButton";
 import cartIcon from "../../assets/images/cart.png";
 import "./product-card.scss";
-import { BasketContext } from "../../contextProviders/BasketContextProvider";
 import { Product } from "../../lib/types";
+import { useUpdateBasket } from "../../hooks/useUpdateBasket";
 
 const ProductCard = ({
   id,
@@ -18,29 +18,13 @@ const ProductCard = ({
 }: ProductCardProps) => {
   const [hover, setHover] = useState(false);
   const breakPoint = useBreakPoint();
-  const basket = useContext(BasketContext);
+  const updateBasket = useUpdateBasket();
 
   const isDesktop = breakPoint === Breakpoints.Desktop;
   const isMobile = breakPoint === Breakpoints.Mobile;
 
   const handleAddToBasket = () => {
-    updateStock(id, "add");
-
-    if (!basket.data.items.includes(id)) {
-      const updatedItems = [...basket.data.items];
-      updatedItems.push(id);
-      basket.update({
-        ...basket.data,
-        items: updatedItems,
-        count: basket.data.count + 1,
-      });
-      return;
-    }
-
-    basket.update({
-      ...basket.data,
-      count: basket.data.count + 1,
-    });
+    updateBasket(id, "add");
   };
 
   return (

@@ -3,9 +3,7 @@ import addIcon from "../../assets/images/add.png";
 import removeIcon from "../../assets/images/remove.png";
 import "./basket-product-card.scss";
 import { Product } from "../../lib/types";
-import { useContext } from "react";
-import { ProductsContext } from "../../contextProviders/ProductsContextProvider";
-import { BasketContext } from "../../contextProviders/BasketContextProvider";
+import { useUpdateBasket } from "../../hooks/useUpdateBasket";
 
 const BasketProductCard = ({
   id,
@@ -15,31 +13,14 @@ const BasketProductCard = ({
   image_url,
   stock_quantity,
 }: BasketProductCardProps) => {
-  const { updateStock } = useContext(ProductsContext);
-  const basket = useContext(BasketContext);
+  const updateBasket = useUpdateBasket();
 
   const handleIncreaseQuantity = () => {
-    updateStock(id, "add");
-    basket.update({
-      ...basket.data,
-      count: basket.data.count + 1,
-    });
+    updateBasket(id, "add");
   };
 
   const handleDecreaseQuantity = () => {
-    updateStock(id, "remove");
-    if (selected_quantity === 1) {
-      basket.update({
-        ...basket.data,
-        count: basket.data.count - 1,
-        items: basket.data.items.filter((item) => item !== id),
-      });
-      return;
-    }
-    basket.update({
-      ...basket.data,
-      count: basket.data.count - 1,
-    });
+    updateBasket(id, "remove");
   };
 
   return (
