@@ -6,55 +6,90 @@
   background-color: white;
   border-radius: 2rem;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  max-width: 400px;
 
   &__img {
     display: block;
     object-fit: cover;
     border-radius: 2rem 0 0 2rem;
-    height: 100px;
     width: 100px;
   }
 
-  &__details {
+  &__content {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1;
+    padding: 1rem 0;
   }
 
-  &__title {
+  &__headline {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
     font: $mobile-body-medium;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    margin: 0;
   }
 
-  &__product-amount {
+  &__subheader {
+    font: $mobile-body-medium;
+    font-size: 1rem;
+    color: #725752;
+    margin: 0;
+  }
+
+  &__selected-quantity {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
     font: $mobile-body-medium;
   }
 
   &__price {
-    align-self: center;
-    margin-left: auto;
-    margin-right: 1rem;
-    font: $mobile-body-medium;
+    font: $mobile-body-bold;
+    margin: 0;
+    margin-top: 1rem;
     font-size: 1.6rem;
     color: #725752;
+    align-self: flex-end;
+    margin-right: 1.6rem;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 520px) {
   .basket-product-card {
-    max-width: 600px;
     &__img {
-      height: 130px;
       width: 130px;
     }
 
+    &__header {
+      font: $mobile-body-medium;
+      font-size: 1.8rem;
+    }
+
+    &__content {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 2.4rem;
+    }
+
+    &__subheader {
+      font: $mobile-body-medium;
+      font-size: 1.6rem;
+    }
+
     &__price {
-      margin-right: 2.4rem;
-      font-size: 2.4rem;
+      font-size: 2rem;
+      margin-left: auto;
+      margin-right: 1.6rem;
+      align-self: center;
     }
   }
 }

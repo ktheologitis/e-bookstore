@@ -4,6 +4,8 @@ import App from "./App";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from "react-router-dom";
 import "./stylesheets/global.scss";
+import ProductsContextProvider from "./contextProviders/ProductsContextProvider";
+import BasketContextProvider from "./contextProviders/BasketContextProvider";
 
 const queryClient = new QueryClient();
 
@@ -14,7 +16,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <App />
+        <ProductsContextProvider>
+          <BasketContextProvider>
+            <App />
+          </BasketContextProvider>
+        </ProductsContextProvider>
       </QueryClientProvider>
     </BrowserRouter>
   </React.StrictMode>

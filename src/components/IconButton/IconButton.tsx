@@ -6,6 +6,7 @@ const IconButton = ({
   label,
   icon,
   style = IconButtonStyles.Primary,
+  disabled,
   onClick,
 }: IconButtonProps) => {
   return (
@@ -13,7 +14,9 @@ const IconButton = ({
       className={classNames({
         [style]: true,
         "icon-button--labeled": label != null,
+        "icon-button--disabled": disabled,
       })}
+      disabled={disabled}
       onClick={onClick}
     >
       {label && <p>{label}</p>}
@@ -28,5 +31,6 @@ type IconButtonProps = {
   label?: string | null;
   icon: string;
   style?: IconButtonStyles;
+  disabled?: boolean;
   onClick?: () => void;
 };
