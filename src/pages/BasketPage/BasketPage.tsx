@@ -14,31 +14,33 @@ const BasketPage = () => {
 
   return (
     <main className="page basket-page">
-      <PageHeader title="My Basket" />
       {basket.data.count > 0 && (
-        <main className="basket-page__main-content">
-          <section className="basket-page__basket-product-cards">
-            {basket.data.items.length > 0 &&
-              basket.data.items.map((id) => {
-                return (
-                  <React.Fragment key={id}>
-                    <BasketProductCard
-                      id={id}
-                      title={products[id].title}
-                      selected_quantity={products[id].selected_quantity}
-                      price={products[id].price}
-                      image_url={products[id].image_url}
-                      stock_quantity={products[id].stock_quantity}
-                    />
-                  </React.Fragment>
-                );
-              })}
-          </section>
-          <BillingSection />
-          <section className="actions">
-            <Button label="Checkout" />
-          </section>
-        </main>
+        <>
+          <PageHeader title="My Basket" />
+          <main className="basket-page__main-content">
+            <section className="basket-page__basket-product-cards">
+              {basket.data.items.length > 0 &&
+                basket.data.items.map((id) => {
+                  return (
+                    <React.Fragment key={id}>
+                      <BasketProductCard
+                        id={id}
+                        title={products[id].title}
+                        selected_quantity={products[id].selected_quantity}
+                        price={products[id].price}
+                        image_url={products[id].image_url}
+                        stock_quantity={products[id].stock_quantity}
+                      />
+                    </React.Fragment>
+                  );
+                })}
+            </section>
+            <BillingSection />
+            <section className="actions">
+              <Button label="Checkout" />
+            </section>
+          </main>
+        </>
       )}
       {basket.data.count === 0 && (
         <IllustrationSection text="You have no products in your basket ..." />
