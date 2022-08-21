@@ -3,6 +3,7 @@ import { useState } from "react";
 import { getProducts } from "../lib/api";
 import { Product, Products } from "../lib/types";
 import { useCachedProducts } from "./useCachedProducts";
+import { isEqual } from "lodash";
 
 export const useProducts = () => {
   const cachedProducts = useCachedProducts();
@@ -19,21 +20,21 @@ export const useProducts = () => {
       staleTime: Infinity,
       onSuccess(data: Product[]) {
         const normalizedData: Products = {};
-        setProductsData((_) => {
-          data.forEach((item) => {
-            normalizedData[item.id] = {
-              ...item,
-              selected_quantity: 0,
-            };
-          });
+        data.forEach((item) => {
+          normalizedData[item.id] = {
+            ...item,
+            selected_quantity: 0,
+          };
+        });
 
+        if (!isEqual(normalizedData, cachedProducts)) {
           window.localStorage.setItem(
             "cachedProducts",
             JSON.stringify(normalizedData)
           );
 
-          return normalizedData;
-        });
+          setProductsData(normalizedData);
+        }
       },
     }
   );

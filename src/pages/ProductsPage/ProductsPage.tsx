@@ -13,7 +13,6 @@ const ProductsPage = () => {
   const { products, status } = useContext(ProductsContext);
 
   const isLoading = status === Status.Loading;
-  const isSuccess = status === Status.Success;
   const isError = status === Status.Error;
 
   return (
@@ -24,27 +23,7 @@ const ProductsPage = () => {
       {isLoading && !cachedProducts && (
         <IllustrationSection text="Please wait until we load our products ..." />
       )}
-      {(isLoading || isError) && cachedProducts && (
-        <>
-          <PageHeader title="Products" />
-          <section className="products-page__products">
-            {Object.values(cachedProducts ?? {}).map((product) => {
-              return (
-                <React.Fragment key={product.id}>
-                  <ProductCard
-                    id={product.id}
-                    title={product.title}
-                    price={product.price}
-                    image_url={product.image_url}
-                    stock_quantity={product.stock_quantity}
-                  />
-                </React.Fragment>
-              );
-            })}
-          </section>
-        </>
-      )}
-      {isSuccess && (
+      {cachedProducts && (
         <>
           <PageHeader title="Products" />
           <section className="products-page__products">
@@ -64,6 +43,26 @@ const ProductsPage = () => {
           </section>
         </>
       )}
+      {/* {isSuccess && (
+        <>
+          <PageHeader title="Products" />
+          <section className="products-page__products">
+            {Object.values(products).map((product) => {
+              return (
+                <React.Fragment key={product.id}>
+                  <ProductCard
+                    id={product.id}
+                    title={product.title}
+                    price={product.price}
+                    image_url={product.image_url}
+                    stock_quantity={product.stock_quantity}
+                  />
+                </React.Fragment>
+              );
+            })}
+          </section>
+        </>
+      )} */}
     </main>
   );
 };
