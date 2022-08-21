@@ -18,6 +18,10 @@ export const useProducts = () => {
         data.forEach((item) => {
           normalizedData[item.id] = { ...item, selected_quantity: 0 };
         });
+        window.localStorage.setItem(
+          "cachedProducts",
+          JSON.stringify(normalizedData)
+        );
         setProducts(normalizedData);
       },
     }
