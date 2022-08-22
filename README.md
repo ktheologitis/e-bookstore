@@ -45,7 +45,7 @@ __Reusable components__ were created, in order to share UI and styling without c
 A good ecample of that is the `IllustrationSection` component, which a generic page with a dynamic message and is used in different scenarios such "no products curretly in the basket", "loading state of api request" etc.
 
 ### Caching
-To __improve the display time__ when users are revisiting the app, the approach was to__cache the fetched product__ data in the browser's __local storage__ (you can find it under the id "cachedProducts"). 
+To __improve the display time__ when users are revisiting the app, the approach was to __cache the fetched product__ data in the browser's __local storage__ (you can find it under the id "cachedProducts"). 
 
 The logic is that when a user revisits the app, the products global object is assigned the cachedProducts. When eventually the API returns the server products data, global products state object will only be updated if the cachedProducts are different compared to the server products (this is where isEqual from lodash was used to perform deep object comparison).
 
