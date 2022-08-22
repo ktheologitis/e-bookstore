@@ -7,6 +7,9 @@
 ## <ins>Live Demo</ins>
 [Go to demo](https://e-bookstore.vercel.app)
 
+## <ins>Description</ins>
+This is a responsive SPA created as a simple electronic bookstore with a product and a cart page.
+
 ## <ins>Built with</ins>
 This project was built using the __React.js__ framework with __TypeScript__. The supporting tools/libraries that were used are:
 - __axios__ for making api requests.
