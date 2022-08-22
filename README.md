@@ -3,7 +3,6 @@
 <p align="center">
   <img src="./src/assets/images/app-preview.png" alt="preview"/>
 </p>
-![Design preview for e-bookstore app](./src/assets/images/app-preview.png)
 
 ### <ins>Live Demo</ins>
 [Go to demo](https://e-bookstore.vercel.app)
