@@ -21,7 +21,15 @@ This project was built using the __React.js__ framework with __TypeScript__. The
 #### State
 For the needs of this app __react context__ was more than enough, so 2 main context providers were created:
 - __ProductsContextProvider__ which contains:
-  - _products_ data, _status_ of api request and an _updateStock_ function to 
+  - `products` data.
+  - `status` of api request in order to dynamically render different UI based on it.
+  - `updateStock` function to use when products are added/removed from the basket. 
+- __BasketContextProvider__ which contains:
+  - a `data` object that contains: 
+    - `data.items`, an array of product ids that are currently in the basket.
+    - `data.count`, the total number of products in the basket (data.items.length is not good , because more than one product with the same id might be selected).
+    - `data.checkout_price`, the current checkout_price including discount if it applies.
+    - `data.`
 
 
 ### <ins>Run, test, build and deploy the app</ins>
