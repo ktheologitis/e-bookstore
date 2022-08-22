@@ -1,7 +1,6 @@
 <h1 align="center">e-bookstore app</h1>
 
-### <ins>Description</ins>
-
+![Design preview for the Tip calculator app coding challenge](./assets/images/app-preview.png)
 
 ### <ins>Live Demo</ins>
 [Go to demo](https://e-bookstore.vercel.app)
@@ -33,7 +32,7 @@ For the needs of this app __react context__ was more than enough, so 2 main cont
     - `data.discount`, which currently assigned once the value 0.2, as requested in the specs.
   - `update` function, which is used to update the data when needed inside the respective components.
 
-### Reusability**
+### Reusability
 __Custom hooks__ were created, in order to share stateful logic between components. 
 A good example of that is the `useUpdateBaskert` hook, where all the logic regarding updating stock, selected products, total count of products in the basket etc. is taking place. This way there is only one place that a developer needs to make changes/additions, in case of changed specifications.
 
@@ -47,7 +46,9 @@ The logic is that when a user revisits the app, the products global object is as
 
 ### Data normalization
 By default the server products data is an arrasy of product objects. However, for the products of the global state of the app this data gets transformed as follows:
-`{"1" : {id: "1", title: "Book 1", price: 10, ...}, "2": {id: "2", title: "Book 2", price: 20, ...}}`
+`{"1" : {id: "1", title: "Book 1", price: 10, ...}, "2": {id: "2", title: "Book 2", price: 20, ...}}`.
+
+This way it is easier and much faster to index the desired product when required, compared to searching the whole product array. It should be noted that with such a small array of server data the performance gain is minimal, but this approach was followed as a generally good practice. 
 
 ### <ins>Run, test, build and deploy the app</ins>
 Clone the repository on your local machine, open a command line and navigate to the repo's top level folder. Make sure that you have npm installed.
