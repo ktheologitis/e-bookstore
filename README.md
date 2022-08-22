@@ -7,7 +7,7 @@
 ## <ins>Live Demo</ins>
 [Go to demo](https://e-bookstore.vercel.app)
 
-### <ins>Built with</ins>
+## <ins>Built with</ins>
 This project was built using the __React.js__ framework with __TypeScript__. The supporting tools/libraries that were used are:
 - __axios__ for making api requests.
 - __react-query__ for handling api requests.
