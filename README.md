@@ -18,7 +18,7 @@ This project was built using the __React.js__ framework with __TypeScript__. The
 
 ### <ins>Design decisions</ins>
 
-#### State
+### Global State schema
 For the needs of this app __react context__ was more than enough, so 2 main context providers were created:
 - __ProductsContextProvider__ which contains:
   - `products` data.
@@ -29,7 +29,9 @@ For the needs of this app __react context__ was more than enough, so 2 main cont
     - `data.items`, an array of product ids that are currently in the basket.
     - `data.count`, the total number of products in the basket (data.items.length is not good , because more than one product with the same id might be selected).
     - `data.checkout_price`, the current checkout_price including discount if it applies.
-    - `data.`
+    - `data.hasDiscount`, which currently is assigned a boolean value once when the app loads based on the browser's local date.
+    - `data.discount`, which currently assigned once the value 0.2, as requested in the specs.
+  - `update` function, which is used to update the data when needed inside the respective components.
 
 
 ### <ins>Run, test, build and deploy the app</ins>
