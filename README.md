@@ -18,7 +18,13 @@ This project was built using the __React.js__ framework with __TypeScript__. The
 
 ### <ins>Design decisions</ins>
 
-### Run, test, build and deploy the app
+#### State
+For the needs of this app __react context__ was more than enough, so 2 main context providers were created:
+- __ProductsContextProvider__ which contains:
+  - _products_ data, _status_ of api request and an _updateStock_ function to 
+
+
+### <ins>Run, test, build and deploy the app</ins>
 Clone the repository on your local machine, open a command line and navigate to the repo's top level folder. Make sure that you have npm installed.
 
 #### `npm install`
