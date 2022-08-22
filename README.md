@@ -33,6 +33,21 @@ For the needs of this app __react context__ was more than enough, so 2 main cont
     - `data.discount`, which currently assigned once the value 0.2, as requested in the specs.
   - `update` function, which is used to update the data when needed inside the respective components.
 
+### Reusability**
+__Custom hooks__ were created, in order to share stateful logic between components. 
+A good example of that is the `useUpdateBaskert` hook, where all the logic regarding updating stock, selected products, total count of products in the basket etc. is taking place. This way there is only one place that a developer needs to make changes/additions, in case of changed specifications.
+
+__Reusable components__ were created, in order to share UI and styling without code duplication. 
+A good ecample of that is the `IllustrationSection` component, which a generic page with a dynamic message and is used in different scenarios such "no products curretly in the basket", "loading state of api request" etc.
+
+### Caching
+To __improve the display time__ when users are revisiting the app, the approach was to__cache the fetched product__ data in the browser's __local storage__ (you can find it under the id "cachedProducts"). 
+
+The logic is that when a user revisits the app, the products global object is assigned the cachedProducts. When eventually the API returns the server products data, global products state object will only be updated if the cachedProducts are different compared to the server products (this is where isEqual from lodash was used to perform deep object comparison).
+
+### Data normalization
+By default the server products data is an arrasy of product objects. However, for the products of the global state of the app this data gets transformed as follows:
+`{"1" : {id: "1", title: "Book 1", price: 10, ...}, "2": {id: "2", title: "Book 2", price: 20, ...}}`
 
 ### <ins>Run, test, build and deploy the app</ins>
 Clone the repository on your local machine, open a command line and navigate to the repo's top level folder. Make sure that you have npm installed.
