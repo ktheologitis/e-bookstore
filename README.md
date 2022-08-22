@@ -1,6 +1,9 @@
 <h1 align="center">e-bookstore app</h1>
 
-![Design preview for the Tip calculator app coding challenge](./src/assets/images/app-preview.png)
+<p align="center">
+  <img src="./src/assets/images/app-preview.png" alt="preview"/>
+</p>
+![Design preview for e-bookstore app](./src/assets/images/app-preview.png)
 
 ### <ins>Live Demo</ins>
 [Go to demo](https://e-bookstore.vercel.app)
