@@ -50,7 +50,7 @@ To __improve the display time__ when users are revisiting the app, the approach 
 The logic is that when a user revisits the app, the products global object is assigned the cachedProducts. When eventually the API returns the server products data, global products state object will only be updated if the cachedProducts are different compared to the server products (this is where isEqual from lodash was used to perform deep object comparison).
 
 ### Data normalization
-By default the server products data is an arrasy of product objects. However, for the products of the global state of the app this data gets transformed as follows:
+By default the server products data is an array of product objects. However, for the products of the global state of the app this data gets transformed as follows:
 `{"1" : {id: "1", title: "Book 1", price: 10, ...}, "2": {id: "2", title: "Book 2", price: 20, ...}}`.
 
 This way it is easier and much faster to index the desired product when required, compared to searching the whole product array. It should be noted that with such a small array of server data the performance gain is minimal, but this approach was followed as a generally good practice. 
