@@ -39,7 +39,7 @@ For the needs of this app __react context__ was more than enough, so 2 main cont
 
 ### Reusability
 __Custom hooks__ were created, in order to share stateful logic between components. 
-A good example of that is the `useUpdateBaskert` hook, where all the logic regarding updating stock, selected products, total count of products in the basket etc. is taking place. This way there is only one place that a developer needs to make changes/additions, in case of changed specifications.
+A good example of that is the `useUpdateBasket` hook, where all the logic regarding updating stock, selected products, total count of products in the basket etc. is taking place. This way there is only one place that a developer needs to make changes/additions, in case of changed specifications.
 
 __Reusable components__ were created, in order to share UI and styling without code duplication. 
 A good ecample of that is the `IllustrationSection` component, which a generic page with a dynamic message and is used in different scenarios such "no products curretly in the basket", "loading state of api request" etc.
