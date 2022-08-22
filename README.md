@@ -53,7 +53,7 @@ The logic is that when a user revisits the app, the products global object is as
 By default the server products data is an array of product objects. However, for the products of the global state of the app this data gets transformed as follows:
 `{"1" : {id: "1", title: "Book 1", price: 10, ...}, "2": {id: "2", title: "Book 2", price: 20, ...}}`.
 
-This way it is easier and much faster to index the desired product when required, compared to searching the whole product array. It should be noted that with such a small array of server data the performance gain is minimal, but this approach was followed as a generally good practice. 
+This way it is easier and much faster to index the desired product when required, compared to searching the whole product array. It should be noted that with such a small array of data the performance gain is minimal, but this approach was followed as a generally good practice. 
 
 ## <ins>Run, test, build and deploy the app</ins>
 Clone the repository on your local machine, open a command line and navigate to the repo's top level folder. Make sure that you have npm installed.
